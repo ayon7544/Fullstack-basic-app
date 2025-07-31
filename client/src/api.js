@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Adjust if deployed
+ baseURL: "https://fullstack-basic-app-7s6u.onrender.com/api", // Adjust if deployed
 });
 
 export const createUser = async (userData) => {
