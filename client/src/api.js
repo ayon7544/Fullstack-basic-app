@@ -1,8 +1,16 @@
-import axios from 'axios';
+// client/src/api.js
+import axios from "axios";
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api'
+  baseURL: "http://localhost:5000/api", // Adjust if deployed
 });
 
-export const createUser = (data) => API.post('/users', data);
-export const fetchUsers = () => API.get('/users');
+export const createUser = async (userData) => {
+  const res = await API.post("/users", userData);
+  // console.log("User created telling from api.js:", userData); // Log the response
+  if (res.status !== 201) {
+    throw new Error("Failed to create user");
+  }
+  return res.data;
+};
+
